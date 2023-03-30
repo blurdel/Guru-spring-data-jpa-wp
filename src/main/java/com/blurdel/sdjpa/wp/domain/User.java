@@ -2,6 +2,7 @@ package com.blurdel.sdjpa.wp.domain;
 
 import java.sql.Timestamp;
 
+import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -41,7 +42,8 @@ public class User {
     @Column(name = "user_status")
     private Integer status;
 
-    @Column(name = "display_name")
+//    @Column(name = "display_name", nullable = false)
+    @Basic(optional = false) // Can map with Basic since displayName -> table.display_name is ok, dont really need Column annotation
     private String displayName;
 
     public Long getId() {
